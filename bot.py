@@ -4,15 +4,15 @@ import random
 from openai import OpenAI
 import threading
 from datetime import datetime
-
-TOKEN = "8620327068:AAFT4nnwTmntE_-2Gwb1oRBJcIhDOu9fQlg"
+import os
+TOKEN = os.getenv("8620327068:AAFT4nnwTmntE_-2Gwb1oRBJcIhDOu9fQlg")
 
 bot = telebot.TeleBot(TOKEN)
 
 usuarios = set()
 
 client = OpenAI(
-    api_key="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",
+    api_key=os.getenv("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"),
     base_url="https://openrouter.ai/api/v1"
 )
 
