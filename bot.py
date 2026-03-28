@@ -85,14 +85,16 @@ historial.append({
     bot.send_chat_action(message.chat.id, "typing")
     time.sleep(random.uniform(1, 5))
 
-    try:
-        respuesta = client.chat.completions.create(
-            model="openrouter/auto",
-            messages=historial,
-            temperature=1.2
-        )
+    bot.send_chat_action(message.chat.id, "typing")
 
-        texto = respuesta.choices[0].message.content #
+try:
+    respuesta = client.chat.completions.create(
+        model="openrouter/auto",
+        messages=historial,
+        temperature=1.0
+    )
+
+    texto = respuesta.choices[0].message.content #
 # cortar si está muy largo
 if len(texto) > 120:
     texto = texto[:120]
