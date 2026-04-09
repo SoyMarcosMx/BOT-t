@@ -6,7 +6,7 @@ import threading
 from datetime import datetime
 import os
 
-# 🔐 variables desde Render
+# 🔐 VARIABLES (Render)
 TOKEN = os.getenv("8620327068:AAFT4nnwTmntE_-2Gwb1oRBJcIhDOu9fQlg")
 API_KEY = os.getenv("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")
 
@@ -48,7 +48,7 @@ def responder(message):
 
     texto_usuario = message.text.lower()
 
-    # guardar datos
+    # 🧠 guardar datos
     if user_id not in datos_usuario:
         datos_usuario[user_id] = []
 
@@ -61,12 +61,12 @@ def responder(message):
     if "soy de" in texto_usuario or "vivo en" in texto_usuario:
         datos_usuario[user_id].append(message.text)
 
-    # guardar nombre
+    # 🧠 guardar nombre
     if "me llamo" in texto_usuario:
         nombre = message.text.split("me llamo")[-1].strip()
         nombres[user_id] = nombre
 
-    # usar memoria
+    # 🧠 usar memoria
     if user_id in datos_usuario and len(datos_usuario[user_id]) > 0:
         info = ". ".join(datos_usuario[user_id][-3:])
         historial.append({
@@ -93,11 +93,11 @@ def responder(message):
 
         texto = respuesta.choices[0].message.content
 
-        # cortar texto largo
+        # ✂️ cortar si está muy largo
         if len(texto) > 120:
             texto = texto[:120]
 
-        # usar nombre
+        # 👤 usar nombre
         if user_id in nombres and random.random() < 0.5:
             texto = f"{nombres[user_id]}, {texto}"
 
