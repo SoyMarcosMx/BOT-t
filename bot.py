@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 
 # 🔐 VARIABLES (Render)
-TOKEN = os.getenv("8620327068:AAFT4nnwTmntE_-2Gwb1oRBJcIhDOu9fQlg")
+TOKEN = ("8620327068:AAFT4nnwTmntE_-2Gwb1oRBJcIhDOu9fQlg")
 API_KEY = os.getenv("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")
 
 bot = telebot.TeleBot(TOKEN)
